@@ -1,0 +1,46 @@
+.productContainer {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 50px 30px;
+}
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 300px;
+    padding: 15px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.productImage {
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.productTitle {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.productPrice {
+    color: red;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.similarBtn {
+    padding: 7px 5px;
+    border-radius: 5px;
+    color: snow;
+    background-color: #985fce;
+    border: 1px solid #985fce;
+    cursor: pointer;
+}

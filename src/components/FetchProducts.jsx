@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DisplayProducts from "./DisplayProducts";
 const API_URL = "https://fakestoreapi.com/products";
-
+import style from "./products.module.css";
 
 const FetchProducts = () => {
     const [products, setProducts] = useState([])
@@ -22,11 +22,11 @@ const FetchProducts = () => {
 
 
     return (
-        <>
+        <div className={style.productContainer} >
         {products.map(product => {
             return <DisplayProducts key={product.id} productTitle={product.title} productImage={product.image} productPrice={product.price} />
         })}
-        </>
+        </div>
     )
 }
 export default FetchProducts;
