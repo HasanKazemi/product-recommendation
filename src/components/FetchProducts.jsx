@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
-import DisplayProducts from "./DisplayProducts";
+import { useEffect } from "react";
 const API_URL = "https://fakestoreapi.com/products";
 
-const FetchProducts = () => {
-    const [products, setProducts] = useState([])
-
+const FetchProducts = ({products,setProducts}) => {
     useEffect(() => {
         if (localStorage.getItem("products")) {
             setProducts(JSON.parse(localStorage.getItem("products")))
@@ -18,9 +15,5 @@ const FetchProducts = () => {
         }
         fetchData()
     }, [])
-
-    return (
-        <DisplayProducts products={products} />    
-    )
 }
-export default FetchProducts;
+export default FetchProducts
