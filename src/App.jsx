@@ -16,6 +16,7 @@ function App() {
     {value: "women's clothing", label: "Women's clothing"},
   ]
   const filterByCategory = (category)=>{
+    if (!category) return setProducts(productsRef.current);
     const filteredProcuts = productsRef.current?.filter(product => product.category === category)
     setProducts(filteredProcuts)
   }
