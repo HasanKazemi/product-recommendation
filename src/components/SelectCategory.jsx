@@ -1,11 +1,11 @@
 import style from "./select.module.css"
 
-const SelectCategory = ({options}) => {
+const SelectCategory = ({options, onchange}) => {
   return (
     <div className={style.selectContainer}>
-        <select className={style.selectTag}>
+        <select onChange={onchange} className={style.selectTag}>
             {options.map(option => (
-                <option value={option.value}>{option.label}</option>
+                <option key={option.value} value={option.value}>{option.label}</option>
             ))}
         </select>
     </div>
