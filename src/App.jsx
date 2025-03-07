@@ -3,10 +3,13 @@ import './App.css'
 import FetchProducts from './components/FetchProducts'
 import DisplayProducts from './components/DisplayProducts'
 import SelectCategory from './components/SelectCategory'
+import PriceInput from './components/PriceInput'
 
 function App() {
   const [products, setProducts] = useState([])
   const [option, setOption] = useState("")
+  const [minNumber, setMinNumber] = useState(0)
+  const [maxNumber, setMaxNumber] = useState(Infinity)
   const productsRef = useRef([])
   const options = [
     {value: "", label: "All"},
@@ -15,6 +18,7 @@ function App() {
     {value: "electronics", label: "Electronics"},
     {value: "women's clothing", label: "Women's clothing"},
   ]
+
   const filterByCategory = (category)=>{
     if (!category) return setProducts(productsRef.current);
     const filteredProcuts = productsRef.current?.filter(product => product.category === category)
@@ -28,6 +32,7 @@ function App() {
         setOption(e.target.value)
         filterByCategory(e.target.value)
         }} />
+      <PriceInput setMinNumber={setMinNumber} setMaxNumber={setMaxNumber} />
       <DisplayProducts products={products} setProducts={setProducts} />
     </>
   )
