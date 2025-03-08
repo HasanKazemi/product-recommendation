@@ -1,4 +1,4 @@
-import { useState , useRef } from 'react'
+import { useState , useRef, useEffect } from 'react'
 import './App.css'
 import FetchProducts from './components/FetchProducts'
 import DisplayProducts from './components/DisplayProducts'
@@ -11,6 +11,7 @@ function App() {
   const [minNumber, setMinNumber] = useState(0)
   const [maxNumber, setMaxNumber] = useState(Infinity)
   const productsRef = useRef([])
+
   const options = [
     {value: "", label: "All"},
     {value: "men's clothing", label: "Men's clothing"},
@@ -24,6 +25,12 @@ function App() {
     const filteredProcuts = productsRef.current?.filter(product => product.category === category)
     setProducts(filteredProcuts)
   }
+
+  useEffect(() => {
+    const filteredProducts = productsRef.current?.filter(product => product.price >= minNumber && product.price <= maxNumber)
+    setProducts(filteredProducts)
+  }, [minNumber,maxNumber])
+
 
   return (
     <>

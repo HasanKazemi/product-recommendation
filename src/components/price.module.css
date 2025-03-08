@@ -1,0 +1,11 @@
+.priceContainer {
+    display: flex;
+    gap: 10px;
+    padding-left: 40px;
+}
+
+.inputPrice {
+    width: 150px;
+    height: 30px;
+    padding-left: 5px;
+}

@@ -1,8 +1,14 @@
+import style from "./price.module.css";
+
 const PriceInput = ({setMinNumber,setMaxNumber}) => {
   return (
-    <div>
-        <input type="number" onChange={(e)=>setMinNumber(e.target.value)} placeholder="Minimum Price..." />
-        <input type="number" onChange={(e)=>setMaxNumber(e.target.value)} placeholder="Maximum Price..." />
+    <div className={style.priceContainer}>
+        <input type="number" onInput={(e)=>{
+            setMinNumber(e.target.value)
+            }} className={style.inputPrice} placeholder="Minimum Price..." min={0} />
+        <input type="number" onInput={(e)=>{
+            setMaxNumber(e.target.value)
+            }} className={style.inputPrice} placeholder="Maximum Price..." />
     </div>
   )
 }
